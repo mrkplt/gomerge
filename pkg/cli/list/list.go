@@ -151,7 +151,7 @@ func promptAndFormat(pullRequests []*github.PullRequest, table *tablewriter.Tabl
 		} else {
 			repoName = *pr.Head.Repo.Name
 		}
-		prIds = append(prIds, fmt.Sprintf("%d | %s", *pr.Number, repoName))
+		prIds = append(prIds, fmt.Sprintf("%d | %s | %s", *pr.Number, repoName, *pr.Title))
 		data = formatTable(pr, org, repoName)
 		if len(data) == 0 {
 			// If there is an issue with the pr, skip
